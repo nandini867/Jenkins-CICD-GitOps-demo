@@ -8,7 +8,6 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        sh 'echo passed'
         git branch: 'main', url: 'https://github.com/nandini867/Jenkins-Zero-To-Hero.git'
       }
     }
@@ -53,6 +52,7 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
+                    cd $WORKSPACE
                     git config user.email "nandinika0@gmail.com"
                     git config user.name "Nandini"
                     BUILD_NUMBER=${BUILD_NUMBER}
