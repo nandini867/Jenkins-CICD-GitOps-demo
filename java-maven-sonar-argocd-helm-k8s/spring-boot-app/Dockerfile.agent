@@ -1,0 +1,7 @@
+# Jenkins build agent with Maven + Java 17 + Docker CLI
+FROM maven:3.9.6-eclipse-temurin-17
+
+# Install Docker CLI so Jenkins can build/push images
+RUN apt-get update && apt-get install -y docker.io
+
+WORKDIR /workspace
