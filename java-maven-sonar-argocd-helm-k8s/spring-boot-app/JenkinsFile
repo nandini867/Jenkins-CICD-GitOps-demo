@@ -1,8 +1,8 @@
 pipeline {
   agent {
     docker {
-           image 'dhi/maven:3.9-jdk17-alpine3.23-dev'
-           args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
+           image 'technandy/maven-docker-agent:v1'   // <-- your image with Maven + Java 17 + Docker CLI
+          args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
     }
   }
   stages {
