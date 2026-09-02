@@ -56,6 +56,8 @@ pipeline {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                dir("${WORKSPACE}") {   // force commands to run inside the repo
                     sh '''
+                    sh 'pwd && ls -a'
+
                     git config user.email "nandinika0@gmail.com"
                     git config user.name "Nandini"
                     BUILD_NUMBER=${BUILD_NUMBER}
