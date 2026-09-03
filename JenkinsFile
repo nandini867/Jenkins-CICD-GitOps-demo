@@ -59,6 +59,8 @@ pipeline {
                     sh '''
                     pwd
                     ls -a
+                    # Mark Jenkins workspace as safe for Git
+                    git config --global --add safe.directory /var/lib/jenkins/workspace/ultimate-demo-cicd
                     git rev-parse --is-inside-work-tree
                     git config user.email "nandinika0@gmail.com"
                     git config user.name "Nandini"
